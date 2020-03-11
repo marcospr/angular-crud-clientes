@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+         <a  routerLink="/cliente/salvar" class="btn btn-success">Novo</a>
+         <br/>
+         <br/>
+         <table class="table table-striped table-hover">
+             <thead>
+                 <tr>
+                   <th>Nome</th>
+                   <th>Email</th>
+                   <th>Telefone</th>
+                   <th>Deletar</th>
+                   <th>Alterar</th>
+                 </tr>
+             </thead>
+            <tbody>
+              <tr *ngFor= "let c of clientes" [routerLink]= "['/cliente/salvar', c.id]">
+                <td>{{c.nome}}</td>
+                <td>{{c.email}}</td>
+                <td>{{c.telefone}}</td>
+                <td><button  (click)="onDelete(c)" [routerLink]= "['/cliente', c.id]" class="btn btn-danger">Deletar</button></td>
+                <td><button  [routerLink]= "['/cliente/salvar',c.id]" class="btn btn-warning">Alterar</button></td>
+              </tr>
+             </tbody>
+         </table>
+     </div>
+  </div>
+</div>
